@@ -50,9 +50,10 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(yaricap) {
+  return 2*pi*r;
 }
+console.log(CemberinCevresi(15));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -64,9 +65,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinAlani(yaricap) {
+  return pi*r*r;
 }
+console.log(CemberinAlani(15));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -89,37 +91,53 @@ function CemberinAlani(/* kodlar buraya */) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
-  enkucuk,
-  enbuyuk,
-  ucebolunenlerintoplami,
-  besyuzdenkucuksayilar,
-  siralisayilar,
-  tekraredensayilar;
+let ucetambolunenler = [],
+  enkucuk = sayilar[0],
+  enbuyuk = sayilar[0],
+  ucebolunenlerintoplami = 0,
+  besyuzdenkucuksayilar = [],
+  siralisayilar = [],
+  tekraredensayilar = [];
 
 // 3a çözümü
 
-/* kodlar buraya */
+for(let i = 0; i<sayilar.length; i++){
+  if(sayilar[i] > enbuyuk){
+    enbuyuk = sayilar[i]
+  }if(sayilar[i] < enkucuk){
+    enkucuk = sayilar[i]
+  }
+}
 
 // 3b çözümü:
 
-/* kodlar buraya */
+sayilar.forEach(bolunen => bolunen % 3 === 0 ? ucetambolunenler.push(bolunen) : null )
 
 // 3c çözümü:
 
-/* kodlar buraya */
+ucetambolunenler.reduce((ucebolunenlerintoplami,current) => ucebolunenlerintoplami + current)
 
 // 3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar.push(...sayilar.filter(num => num < 500));
 
 // 3e çözümü
 
-/* kodlar buraya */
+siralisayilar.push(...besyuzdenkucuksayilar.sort((a,b) => a-b))
 
 // 3f çözümü
 
-/* kodlar buraya */
+let sayiSayac = {};
+
+sayilar.forEach(sayi => {
+  sayiSayac[sayi] = sayiSayac[sayi] ? sayiSayac[sayi] + 1 : 1;
+});
+
+for (let sayi in sayiSayac) {
+  if (sayiSayac[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${sayiSayac[sayi]} kere tekrar edilmiştir`);
+  }
+}
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
